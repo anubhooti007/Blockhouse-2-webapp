@@ -586,6 +586,7 @@ class BybitClient:
                 body["qty"] = fmt(quantity)
             else:
                 raise ValueError("MARKET requires --quote or --qty")
+            # Don't set timeInForce for market orders - let Bybit use default behavior
         else:  # Limit
             if quantity is None or price is None:
                 raise ValueError("LIMIT requires --qty and --price")
